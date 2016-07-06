@@ -24,14 +24,7 @@ $(document).on("ready", function() {
   // defining the callback function that will happen
   // if the request succeeds.
   function onSuccess(json) {
-  //console.log(json.features[0].properties.title);
-
-
-      json.features.forEach(function(object) {
-      console.log(object.properties.title);
-    });
+      console.log(json.features[0].properties.title);
       // celebrate!
-        // });
-      };
-
+  };
 });
