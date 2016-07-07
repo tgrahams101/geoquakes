@@ -2,8 +2,8 @@
 var weekly_quakes_endpoint = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.geojson";
 var $quakesList;
 var map;
-var template;
-var source = $("#earthquakelist").html();
+var template
+var source = $("#earthquakelocations").html();
 //var template = Handlebars.compile(source);
 
 
@@ -31,10 +31,12 @@ function initMap() {
 function onSuccess(json) {
     //console.log(json.features[0].properties.title);
     console.log(json);
-
+    // $("#info").append("<h1>Hey bud</h1>");
     json.features.forEach(function(object) {
         console.log(object.properties.title);
         console.log("" + object.geometry.coordinates[1] + " is the Latitude. " + object.geometry.coordinates[0] + " is the Longitude.");
+        $("#info").append(""+object.properties.title +"<br><br>");
+
 
         var marker = new google.maps.Marker({
             position: {
